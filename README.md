@@ -27,5 +27,5 @@ How the Game Works:
 
 Credits:
 
-Created by: Devin K. Almonor
+- Created by: Devin K. Almonor
 
