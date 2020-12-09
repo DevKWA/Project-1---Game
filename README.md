@@ -22,7 +22,7 @@ Scheduled Completion:
 
 
 How the Game Works:
-- Sonic will be running at the beginning of the game; you must, as the player, move him left and right to collect rings to add time to play and avoid traps.
+- Sonic will be running at the beginning of the game; you must, as the player, move him left,right, up and down to collect rings to add time to play and avoid traps.
 - You will continue to garner points, until you eventually hit an obstacle or time runs out.
 
 Credits:
