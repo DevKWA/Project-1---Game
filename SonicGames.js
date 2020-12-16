@@ -3,23 +3,23 @@
   let questions = [{
     question: "Who was the creator/lead programmer of Sonic?",
     answerChoices: ["Yuji Naka", "Akira Toriyama", "Tomoya Ohtani", "Toei"],
-    rightAnswer: "Yuji Naka"
+    rightAnswer: 0
   }, {
     question: "What was the proposed name for Sonic?",
     answerChoices: ["The Blue Ball of Speed", "Mr.Needlemouse", "The Fast Weasel", "Naked Mole-Rat"],
-    rightAnswer: "Mr.Needlemouse"
+    rightAnswer: 1
   }, {
     question: "At what speed does Sonic sprint/run?",
     answerChoices: ["550 MPH", "222 MPH", "1000 MPH", "767 MPH"],
-    rightAnswer: "767 MPH"
+    rightAnswer: 3
   }, {
     question: "Who is Sonic's Archenemy?",
     answerChoices: [ "Frieza", "Dr.Eggman", "Dr.CrazyFace", "Shadow The Hedgehog"],
-    rightAnswer: "Dr.Eggman"
+    rightAnswer: 3
   }, {
     question: "Where did Sonic grow up? ",
     answerChoices: ["Emerald Hill", "Icy Fortress", "Water City", "Rock World"],
-    rightAnswer: "Emerald Hill"
+    rightAnswer: 0
   }];
   
   let questionCounter = 0; //Tracks question number
