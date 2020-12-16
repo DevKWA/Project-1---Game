@@ -1,0 +1,171 @@
+
+body{
+    display: flex;
+    justify-content: center;
+    background-image: url("SonicBackground.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 725px;
+    font-family: courier;
+    
+}
+
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#gameBox{
+    position: absolute;
+    width: 1000px;
+    height: 890px;
+    border: 5px solid black;
+    background-color: #fffdfc;
+    border-radius: 3px;
+    
+}
+
+
+
+.Sonic{
+position: absolute;
+top: 60%;
+left: 38%;
+background:transparent url('SonicRunningSprite.png') 0 0 no-repeat;
+width: 514px;
+height: 1022px;
+transform: translate(-70%,-50%);
+margin: 2em auto;
+animation: run 0.3s steps(8) infinite forwards;
+background-position: 0%;
+
+}
+
+@keyframes run {
+    100%{
+        background-position: -4112px, 514px;
+       
+       
+       
+        
+    }
+    
+}
+
+.SonicRing{
+    position: absolute;
+    top: 54%;
+    left: 86.9%;
+    background:transparent url('SonicRingsSprite.png') 0 0 no-repeat;
+    width: 550px;
+    height: 510px;
+    transform: translate(-77%, -52%);
+    margin: 2em auto;
+    background-position: 0%;
+    animation: rings 1s steps(90) infinite alternate;
+
+   
+}
+
+@keyframes rings{
+    100% {
+        background-position: -17566px, 209px;
+    }
+}
+
+
+
+#sonicTitle {
+    text-decoration: underline;
+    font-family: 'NiseSegaSonic';
+    color: #256997 ;
+    text-emphasis: red 3px 3px 3px 3px;
+
+    
+}
+
+#sonicTrivia{
+    text-indent: 10px;
+    display:none;
+    
+    
+}
+
+.button {
+    border:4px solid;
+    border-radius:5px;
+    width: 80px;
+    padding-left:5px;
+    padding-right: 5px;
+    position: relative;
+    float:right;
+    background-color: snow;
+    color: black;
+    margin: 0 6px 0 6px;
+}
+
+.button.active {
+    background-color: #fffdfc;
+    color:gold;
+}
+
+button {
+    position: relative;
+    float:right;
+}
+
+.button a{
+    text-decoration: none;
+    color: black ;
+}
+
+#sonicTriviaContainer {
+    width:55%;
+    margin-left: 22%;
+    padding: 2px 0px 0px 0px;
+    background-color: #fffdfc;
+    border:3px solid #0000c9;
+    border-radius:5px;
+    color: #e93f33;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px #e5c32d;
+    position: relative;
+    top: 15px;
+    text-indent: 5px;
+
+  
+
+}
+
+
+#sonicBack{
+    display: none;
+    width: 105px;
+    top: -26px;
+}
+
+#sonicOver{
+    width: 105px;
+    display: none;
+    top: -25px;
+}
+
+#sonicGo{
+    width: 90px;
+    top: -26px;
+    
+}
+
+@font-face{
+    font-family: 'NiseSegaSonic';
+    src: url(NiseSegaSonic.ttf)
+    format('truetype');
+
+}
+
