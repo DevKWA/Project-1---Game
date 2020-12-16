@@ -1,7 +1,7 @@
 # Project-1---Game : 
 
 Title:
-- Sonic, The Speed of Sound at 767MPH
+- Sonic, The Speed of Sound Trivia
 
 
 Design Choices/Languages:
@@ -22,8 +22,7 @@ Scheduled Completion:
 
 
 How the Game Works:
-- Sonic will be running at the beginning of the game; you must, as the player, move him left,right, up and down to collect rings to add time to play and avoid traps.
-- You will continue to garner points, until you eventually hit an obstacle or time runs out.
+- It is a trivia game, in which you answer questions about Sonic's life.
 
 Credits:
 
