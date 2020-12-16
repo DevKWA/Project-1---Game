@@ -15,16 +15,22 @@
   }, {
     question: "Who is Sonic's Archenemy?",
     answerChoices: [ "Frieza", "Dr.Eggman", "Dr.CrazyFace", "Shadow The Hedgehog"],
-    rightAnswer: 3
+    rightAnswer: 1
   }, {
     question: "Where did Sonic grow up? ",
     answerChoices: ["Emerald Hill", "Icy Fortress", "Water City", "Rock World"],
     rightAnswer: 0
-  }];
+  }, 
+    
+ 
   
-  let questionCounter = 0; //Tracks question number
-  let selections = []; //Array containing user choices
-  let quiz = $('#sonicTrivia'); // sonicTrivia div object
+
+
+];
+  
+  let questionUpticker = 0; //Tracks question number
+  let options = []; //Array containing user choices
+  let sonicQuiz = $('#sonicTrivia'); // sonicTrivia div object
   
   // Show initial question
   showNext();
@@ -34,16 +40,16 @@
     e.preventDefault();
     
     // Suspend click listener during fade animation
-    if(quiz.is(':animated')) {        
+    if(sonicQuiz.is('animation')) {        
       return false;
     }
     choose();
     
     // If no user selection, progress is stopped
-    if (isNaN(selections[questionCounter])) {
+    if (isNaN(options[questionUpticker])) {
       alert('Choose an answer.');
     } else {
-      questionCounter++;
+      questionUpticker++;
       showNext();
     }
   });
@@ -52,11 +58,11 @@
   $('#sonicBack').on('click', function (e) {
     e.preventDefault();
     
-    if(quiz.is(':animated')) {
+    if(sonicQuiz.is('animation')) {
       return false;
     }
     choose();
-    questionCounter--;
+    questionUpticker--;
     showNext();
   });
   
@@ -64,85 +70,84 @@
   $('#sonicOver').on('click', function (e) {
     e.preventDefault();
     
-    if(quiz.is(':animated')) {
+    if(sonicQuiz.is('animation')) {
       return false;
     }
-    questionCounter = 0;
-    selections = [];
+    questionUpticker = 0;
+    options = [];
     showNext();
     $('#sonicOver').hide();
   });
   
   // Animates buttons on hover
-  $('.button').on('mouseenter', function () {
+  $('.button').on('cursorenter', function () {
     $(this).addClass('active');
   });
-  $('.button').on('mouseleave', function () {
+  $('.button').on('cursorleave', function () {
     $(this).removeClass('active');
   });
   
-  // Creates and returns the div that contains the questions and 
-  // the answer selections
+  // Creates and returns the div that contains the questions and  the answer options
   function createQuestionElement(index) {
-    let qElement = $('<div>', {
+    let questionElement = $('<div>', {
       id: 'question'
     });
     
-    let header = $('<h2>Question ' + (index + 1) + ':</h2>');
-    qElement.append(header);
+    let headerOfSonic = $('<h3>Question ' + (index + 1) + ':</h3>');
+    questionElement.append(headerOfSonic);
     
-    let question = $('<p>').append(questions[index].question);
-    qElement.append(question);
+    let questionsOfSonic = $('<p>').append(questions[index].question);
+    questionElement.append(questionsOfSonic);
     
-    let radioButtons = createRadios(index);
-    qElement.append(radioButtons);
+    let radioButtonsOfSonic = createRadioInputs(index);
+    questionElement.append(radioButtonsOfSonic);
     
-    return qElement;
+    return questionElement;
   }
   
   // Creates a list of the answer choices as radio inputs
-  function createRadios(index) {
+  function createRadioInputs(index) {
     let radioList = $('<ul>');
-    let item;
+    let sonicItem;
     let input = '';
     for (let i = 0; i < questions[index].answerChoices.length; i++) {
-      item = $('<li>');
+      sonicItem = $('<li>');
       input = '<input type="radio" name="answer" value=' + i + ' />';
       input += questions[index].answerChoices[i];
-      item.append(input);
-      radioList.append(item);
+      sonicItem.append(input);
+      radioList.append(sonicItem);
     }
     return radioList;
   }
   
   // Reads the user selection and pushes the value to an array
   function choose() {
-    selections[questionCounter] = +$('input[name="answer"]:checked').val();
+    options[questionUpticker] = +$('input[name="answer"]:checked').val();
   }
   
   // Displays next requested element
   function showNext() {
-    quiz.fadeOut(function() {
+  sonicQuiz.fadeOut(function() {
       $('#question').remove();
       
-      if(questionCounter < questions.length){
-        let nextQuestion = createQuestionElement(questionCounter);
-        quiz.append(nextQuestion).fadeIn();
-        if (!(isNaN(selections[questionCounter]))) {
-          $('input[value='+selections[questionCounter]+']').prop('checked', true);
+      if(questionUpticker < questions.length){
+        let nextQuestion = createQuestionElement(questionUpticker);
+        sonicQuiz.append(nextQuestion).fadeIn();
+        if (!(isNaN(options[questionUpticker]))) {
+          $('input[value='+options[questionUpticker]+']').prop('checked', true);
         }
         
         // Controls display of 'sonicBack' button
-        if(questionCounter === 1){
+        if(questionUpticker === 1){
           $('#sonicBack').show();
-        } else if(questionCounter === 0){
+        } else if(questionUpticker === 0){
           
           $('#sonicBack').hide();
           $('#sonicGo').show();
         }
       }else {
-        let scoreElem = showPoints();
-        quiz.append(scoreElem).fadeIn();
+        let pointElem = showPoints();
+        sonicQuiz.append(pointElem).fadeIn();
         $('#sonicGo').hide();
         $('#sonicBack').hide();
         $('#sonicOver').show();
@@ -155,8 +160,8 @@
     let score = $('<p>',{id: 'question'});
     
     let numCorrect = 0;
-    for (let i = 0; i < selections.length; i++) {
-      if (selections[i] === questions[i].rightAnswer) {
+    for (let i = 0; i < options.length; i++) {
+      if (options[i] === questions[i].rightAnswer) {
         numCorrect++;
       }
     }
